@@ -1,0 +1,4 @@
+Options -Indexes
+<Files "lib.php">
+  Require all denied
+</Files>

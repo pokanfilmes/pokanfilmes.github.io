@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<script>if(location.protocol==='http:'&&/(^|\.)pokanfilmes\.com\.br$/.test(location.hostname)){location.replace('https://'+location.host+location.pathname+location.search+location.hash)}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Pokan Filmes: produtora de vídeo em São Paulo. Cobertura de eventos corporativos com Reels e Stories entregues no mesmo dia, vídeo institucional e conteúdo mensal para pequenos negócios.">
 <meta property="og:title" content="Pokan Filmes · O seu evento publicado antes de acabar">
@@ -17,6 +18,8 @@ Conversão: botão do formulário id="sendBtn" e links wa.me = evento de convers
 ================================================================== -->
 
 <style>html{color-scheme:dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="icon" type="image/png" href="logo/icone.png">
+<link rel="apple-touch-icon" href="logo/icone.png">
 <title>Pokan Filmes · Produtora de vídeo em São Paulo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap">
@@ -61,7 +64,8 @@ section{position:relative;padding-block:clamp(72px,10vw,140px)}
 /* Nav */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(28,33,38,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--linha)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px}
-.nav .logo{font-size:1.7rem}
+.logo img{display:block;width:auto;max-width:none}
+.nav .logo img{height:28px}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.8rem;font-family:var(--display);font-size:.92rem;font-weight:500}
 .nav ul a{color:var(--cinza);transition:color .2s}
 .nav ul a:hover{color:var(--branco)}
@@ -221,6 +225,11 @@ section{position:relative;padding-block:clamp(72px,10vw,140px)}
 .tab.is-on{background:var(--laranja);border-color:var(--laranja);color:var(--preto-2)}
 .card.is-hidden{display:none}
 .grid-empty{color:var(--cinza);padding:2rem 0;text-align:center}
+.card .bg.genshin{background-image:url("capas/genshin-card.jpg")}
+.card .bg.isaac{background-image:url("capas/isaac-card.jpg")}
+.card .bg.nevasca{background-image:url("capas/nevasca-card.jpg")}
+.card .bg.grupo-cervejeiro{background-image:url("capas/grupo-cervejeiro-card.jpg")}
+.card .bg.mauricio-neves{background-image:url("capas/mauricio-neves-card.jpg")}
 /* Capas do banner: arquivos em capas/ (versão larga no desktop, vertical no celular) */
 .feat-slide .bg.forma{background-image:url("capas/forma-banner.jpg")}
 .feat-slide .bg.spfw{background-image:url("capas/spfw-banner.jpg")}
@@ -325,7 +334,7 @@ body.player-on{overflow:hidden}
 footer{background:var(--preto-2);border-top:1px solid var(--linha);padding-block:3rem 2rem}
 footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2rem}
 @media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
-footer .logo{font-size:2rem}
+footer .logo img{height:66px}
 footer p,footer li{color:var(--cinza);font-size:.92rem}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
 footer h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--branco);margin-bottom:1rem}
@@ -347,7 +356,7 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
 <body>
 <nav class="nav" aria-label="Principal">
   <div class="wrap">
-    <a href="#top" class="logo" aria-label="Pokan Filmes">P<span class="ico"><i></i><b></b></span>kan<small>Filmes</small></a>
+    <a href="#top" class="logo" aria-label="Pokan Filmes"><img src="logo/pokan-reduzido.png" alt="Pokan" width="454" height="120"></a>
     <ul id="menu">
       <li><a href="#trabalhos">Trabalhos</a></li>
       <li><a href="#eventos">Eventos</a></li>
@@ -411,6 +420,7 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
       <button type="button" class="tab" data-filter="ativacao" role="tab" aria-selected="false">Ativação de marca</button>
       <button type="button" class="tab" data-filter="institucional" role="tab" aria-selected="false">Institucional</button>
       <button type="button" class="tab" data-filter="documentario" role="tab" aria-selected="false">Documentário</button>
+      <button type="button" class="tab" data-filter="politica" role="tab" aria-selected="false">Política</button>
     </div>
 
     <div class="work-grid" id="workGrid">
@@ -423,7 +433,12 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
       <a class="card reveal" data-cat="eventos" href="https://drive.google.com/file/d/14oLs1iKQaAsiNQclLGFLEf6UVZGPx76X/view?usp=sharing" target="_blank" rel="noopener"><div class="bg getnet"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Evento corporativo</p><h3>Getnet</h3><p>Lançamento do programa de parcerias no SubAstor Bar do Cofre</p></div></a>
       <a class="card reveal" data-cat="documentario" href="https://drive.google.com/drive/folders/1rMlXJS0S743ghz2XNn957Nl9gySH4_q6?usp=sharing" target="_blank" rel="noopener"><div class="bg rio-open"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Documentário</p><h3>Rio Open</h3><p>Documentário e duas peças curtas sobre o braço social do torneio</p></div></a>
       <a class="card reveal" data-cat="institucional" href="https://drive.google.com/file/d/1YFjpJag9T0vubUsXqVXwBuyU4GPGawG_/view?usp=sharing" target="_blank" rel="noopener"><div class="bg edson-queiroz"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Institucional</p><h3>Grupo Edson Queiroz</h3><p>70 anos do grupo dono de Minalba, Smaltec e Nacional Gás</p></div></a>
-      <a class="card reveal" data-cat="institucional" href="https://drive.google.com/file/d/1X3tN-P7cqrU4E02zxgoI4R4uLQt9iF-4/view?usp=drive_link" target="_blank" rel="noopener"><div class="bg dogs-day"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Institucional para redes</p><h3>Dog's Day</h3><p>Inauguração da nova unidade do 3º petshop mais amado de SP</p></div></a>
+      <a class="card reveal" data-video="videos/dogs-day.mp4" data-cat="institucional" href="https://drive.google.com/file/d/1X3tN-P7cqrU4E02zxgoI4R4uLQt9iF-4/view?usp=drive_link" target="_blank" rel="noopener"><div class="bg dogs-day"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Institucional para redes</p><h3>Dog's Day</h3><p>Inauguração da nova unidade do 3º petshop mais amado de SP</p></div></a>
+      <a class="card reveal" data-video="videos/genshin.mp4" data-cat="ativacao" href="videos/genshin.mp4" target="_blank" rel="noopener"><div class="bg genshin"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Ativação de marca</p><h3>Genshin Impact · BGS 2025</h3><p>Estande, cosplayers e público na Brasil Game Show</p></div></a>
+      <a class="card reveal" data-video="videos/isaac.mp4" data-cat="eventos" href="videos/isaac.mp4" target="_blank" rel="noopener"><div class="bg isaac"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Evento corporativo</p><h3>isaac</h3><p>Cobertura do evento com depoimentos de parceiros</p></div></a>
+      <a class="card reveal" data-video="videos/nevasca.mp4" data-cat="institucional" href="videos/nevasca.mp4" target="_blank" rel="noopener"><div class="bg nevasca"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Institucional</p><h3>Nevasca Alimentos</h3><p>Da receita de casa à fábrica e à distribuição</p></div></a>
+      <a class="card reveal" data-video="videos/grupo-cervejeiro.mp4" data-cat="institucional" href="videos/grupo-cervejeiro.mp4" target="_blank" rel="noopener"><div class="bg grupo-cervejeiro"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Institucional</p><h3>Grupo Cervejeiro</h3><p>Da produção ao copo, com Grotti Beer e Blackbox Tap House</p></div></a>
+      <a class="card reveal" data-video="videos/mauricio-neves.mp4" data-cat="politica" href="videos/mauricio-neves.mp4" target="_blank" rel="noopener"><div class="bg mauricio-neves"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Política</p><h3>Mauricio Neves</h3><p>Vídeo de campanha</p></div></a>
     </div>
     <p class="grid-empty" id="gridEmpty" hidden>Em breve novos projetos nesta frente.</p>
   </div>
@@ -589,7 +604,7 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
         <p class="plan-sub">Para quem quer aparecer com constância sem virar refém do celular.</p>
         <p class="price">R$ 1.800<small>por mês · a partir de</small></p>
         <ul><li>1 dia de gravação por mês no seu espaço</li><li>6 vídeos verticais editados, com legenda e trilha</li><li>Pacote de Stories do dia de gravação</li><li>Calendário de postagem do mês</li></ul>
-        <a href="#contato" class="btn btn-ghost" data-seg="negocio">Quero o Presença</a>
+        <a href="#contato" class="btn btn-ghost" data-seg="negocio" data-pacote="Presença">Quero o Presença</a>
       </div>
       <div class="plan featured reveal">
         <span class="ribbon">Mais escolhido</span>
@@ -598,7 +613,7 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
         <p class="plan-sub">Para quem quer conteúdo toda semana e um perfil que vende.</p>
         <p class="price">R$ 2.500<small>por mês · a partir de</small></p>
         <ul><li>2 dias de gravação por mês no seu espaço</li><li>12 vídeos verticais editados, com legenda e trilha</li><li>Stories dos dois dias de gravação</li><li>Sugestão de legendas e hashtags</li><li>Calendário de postagem e revisão mensal</li></ul>
-        <a href="#contato" class="btn btn-primary" data-seg="negocio">Quero o Crescimento</a>
+        <a href="#contato" class="btn btn-primary" data-seg="negocio" data-pacote="Crescimento">Quero o Crescimento</a>
       </div>
       <div class="plan reveal">
         <p class="plan-k">Ritmo 3</p>
@@ -606,7 +621,7 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
         <p class="plan-sub">Para redes de unidades e marcas que querem produção completa.</p>
         <p class="price">Sob consulta<small>proposta em 24h</small></p>
         <ul><li>Dias de gravação definidos pelo projeto</li><li>Vídeos verticais e horizontais, institucional incluso</li><li>Cobertura de datas especiais e inaugurações</li><li>Relatório mensal de desempenho</li></ul>
-        <a href="#contato" class="btn btn-ghost" data-seg="negocio">Pedir proposta</a>
+        <a href="#contato" class="btn btn-ghost" data-seg="negocio" data-pacote="Marca">Pedir proposta</a>
       </div>
     </div>
     <p class="note">Valores de referência para a cidade de São Paulo, válidos para contrato de 3 meses. O valor final depende do tipo de negócio, da quantidade de unidades e do que entra em cada gravação. Projetos de eventos e corporativos são sempre sob consulta.</p>
@@ -619,9 +634,9 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
       <p class="eyebrow">Vamos conversar</p>
       <h2>Conte o que você precisa. Respondemos no mesmo dia.</h2>
       <div class="info">
-        <div><strong>WhatsApp</strong><a id="waText" href="#">(11) 99997-4580</a></div>
+        <div><strong>WhatsApp</strong><a id="waText" href="https://wa.me/5511925828151" target="_blank" rel="noopener">(11) 92582-8151</a><br><a href="https://wa.me/5511999974580" target="_blank" rel="noopener">(11) 99997-4580 · Luis</a></div>
         <div><strong>E-mail</strong><a href="mailto:contato@pokanfilmes.com.br">contato@pokanfilmes.com.br</a></div>
-        <div><strong>Base</strong>Campos Elíseos, São Paulo · SP<br>Atendemos todo o Brasil</div>
+        <div><strong>Base</strong>São Paulo · SP<br>Atendemos todo o Brasil</div>
         <div><strong>Redes</strong><a href="https://instagram.com/pokanfilmes" target="_blank" rel="noopener">@pokanfilmes</a></div>
       </div>
     </div>
@@ -639,9 +654,11 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
         <div class="field"><label for="tel">WhatsApp</label><input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="(11) 9 0000-0000" required></div>
         <div class="field"><label for="quando">Quando</label><select id="quando" name="quando"><option>Nas próximas 2 semanas</option><option>No próximo mês</option><option>Nos próximos 3 meses</option><option>Ainda sem data</option></select></div>
       </div>
+      <div class="field"><label for="pacote">Pacote de interesse</label><select id="pacote" name="pacote"><option>Ainda não sei</option><option>Presença</option><option>Crescimento</option><option>Marca</option><option>Projeto sob medida</option></select></div>
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label for="siteCampo">Não preencha</label><input id="siteCampo" name="site" type="text" tabindex="-1" autocomplete="off"></div>
       <div class="field"><label for="msg">O que você precisa</label><textarea id="msg" name="msg" placeholder="Ex.: convenção de vendas em novembro, 300 pessoas, queremos Reels no mesmo dia e um aftermovie."></textarea></div>
       <button class="btn btn-primary" type="submit" id="sendBtn">Enviar pelo WhatsApp</button>
-      <p class="fine">Abre uma conversa no WhatsApp com a mensagem pronta. Sem spam, sem lista.</p>
+      <p class="fine">Abre uma conversa no WhatsApp com a mensagem pronta. Guardamos seu nome e contato só para retornar o seu pedido. Sem spam, sem lista.</p>
       <div class="done" id="done" hidden>
         <p><strong>Mensagem pronta.</strong> Se o WhatsApp não abriu, copie o texto abaixo e envie para o número acima ou por e-mail.</p>
         <textarea id="doneText" readonly aria-label="Mensagem para enviar"></textarea>
@@ -654,7 +671,7 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
 <footer>
   <div class="wrap">
     <div>
-      <a href="#top" class="logo" aria-label="Pokan Filmes">P<span class="ico"><i></i><b></b></span>kan<small>Filmes</small></a>
+      <a href="#top" class="logo" aria-label="Pokan Filmes"><img src="logo/pokan-filmes.png" alt="Pokan Filmes" width="624" height="260"></a>
       <p style="margin-top:1rem;max-width:36ch">Produtora de vídeo em São Paulo. Cobertura de eventos, filmes corporativos, campanhas políticas e conteúdo mensal para negócios, com entrega no mesmo dia.</p>
     </div>
     <div>
@@ -663,7 +680,7 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
     </div>
     <div>
       <h4>Contato</h4>
-      <ul><li>contato@pokanfilmes.com.br</li><li>Campos Elíseos, São Paulo</li><li><a href="https://instagram.com/pokanfilmes" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.youtube.com/@pokanfilmes" target="_blank" rel="noopener">YouTube</a></li></ul>
+      <ul><li>contato@pokanfilmes.com.br</li><li>São Paulo, SP</li><li><a href="https://instagram.com/pokanfilmes" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.youtube.com/@pokanfilmes" target="_blank" rel="noopener">YouTube</a></li></ul>
     </div>
   </div>
   <div class="bottom"><span>© 2026 Pokan Filmes. Todos os direitos reservados.</span><span>CNPJ e endereço completo sob consulta</span></div>
@@ -676,8 +693,8 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
 
 <script>
 // ===== CONFIGURAR AQUI =====
-var WHATSAPP = "5511999974580"; // número com DDI+DDD, só dígitos. Ex.: 5511987654321
-var WHATSAPP_DISPLAY = "(11) 99997-4580";
+var WHATSAPP = "5511925828151"; // número com DDI+DDD, só dígitos. Ex.: 5511987654321
+var WHATSAPP_DISPLAY = "(11) 92582-8151";
 // ===========================
 
 (function(){
@@ -786,6 +803,7 @@ var WHATSAPP_DISPLAY = "(11) 99997-4580";
     a.addEventListener('click', function(){
       var id = a.dataset.seg === 'negocio' ? 'segNeg' : a.dataset.seg === 'politica' ? 'segPol' : 'segCorp';
       document.getElementById(id).checked = true;
+      if (a.dataset.pacote) document.getElementById('pacote').value = a.dataset.pacote;
     });
   });
 
@@ -802,7 +820,12 @@ var WHATSAPP_DISPLAY = "(11) 99997-4580";
       (form.empresa.value.trim() ? 'Empresa: ' + form.empresa.value.trim() + '\n' : '') +
       'WhatsApp: ' + tel + '\n' +
       'Quando: ' + form.quando.value + '\n' +
+      (form.pacote.value !== 'Ainda não sei' ? 'Pacote: ' + form.pacote.value + '\n' : '') +
       (form.msg.value.trim() ? 'Preciso de: ' + form.msg.value.trim() : '');
+    // Registra o lead no painel antes de abrir o WhatsApp; se falhar, o envio pelo WhatsApp segue normalmente
+    try {
+      fetch('api/lead.php', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nome: nome, empresa: form.empresa.value.trim(), tel: tel, seg: seg, pacote: form.pacote.value, quando: form.quando.value, msg: form.msg.value.trim(), site: form.site.value }) }).catch(function(){});
+    } catch (err) {}
     doneText.value = msg;
     done.hidden = false;
     var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
