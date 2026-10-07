@@ -1,0 +1,37 @@
+# Envia os vídeos deste ramo para a pasta videos/ da HostGator.
+# Arquivos acima de 100 MB ficam divididos em partes (*.part-*) e são remontados aqui.
+name: Enviar vídeos para a HostGator
+
+on:
+  push:
+    branches: [videos]
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Remontar e conferir os arquivos
+        run: |
+          mkdir out
+          for first in *.part-aa; do
+            name="${first%.part-aa}"
+            cat "$name".part-* > "out/$name"
+          done
+          cp *.mp4 out/
+          cp SHA256SUMS out/ && cd out && sha256sum -c SHA256SUMS && rm SHA256SUMS
+          ls -la
+
+      - name: Enviar por FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: br884.hostgator.com.br
+          username: deploy@pokanfilmes.com.br
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./out/
+          server-dir: videos/
+          timeout: 600000
