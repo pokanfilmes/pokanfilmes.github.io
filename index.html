@@ -221,6 +221,21 @@ section{position:relative;padding-block:clamp(72px,10vw,140px)}
 .tab.is-on{background:var(--laranja);border-color:var(--laranja);color:var(--preto-2)}
 .card.is-hidden{display:none}
 .grid-empty{color:var(--cinza);padding:2rem 0;text-align:center}
+/* Capas do banner: arquivos em capas/ (versão larga no desktop, vertical no celular) */
+.feat-slide .bg.forma{background-image:url("capas/forma-banner.jpg")}
+.feat-slide .bg.spfw{background-image:url("capas/spfw-banner.jpg")}
+.feat-slide .bg.oktoberfest{background-image:url("capas/oktoberfest-banner.jpg")}
+.feat-slide .bg.buser{background-image:url("capas/buser-banner.jpg")}
+.feat-slide .bg.budweiser{background-image:url("capas/budweiser-banner.jpg")}
+@media (max-width:760px){.feat-slide .bg.forma{background-image:url("capas/forma-mobile.jpg")}.feat-slide .bg.spfw{background-image:url("capas/spfw-mobile.jpg")}.feat-slide .bg.oktoberfest{background-image:url("capas/oktoberfest-mobile.jpg")}.feat-slide .bg.buser{background-image:url("capas/buser-mobile.jpg")}.feat-slide .bg.budweiser{background-image:url("capas/budweiser-mobile.jpg")}}
+
+/* Player de vídeo: abre sobre a página ao clicar em um trabalho com data-video */
+.player{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:rgba(10,12,13,.94);padding:clamp(12px,3vw,40px);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.player.is-open{opacity:1;visibility:visible}
+.player video{max-width:100%;max-height:calc(100vh - 2*clamp(12px,3vw,40px));max-height:calc(100dvh - 2*clamp(12px,3vw,40px));border-radius:12px;background:#000;outline:none;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.player-close{position:absolute;top:max(14px,env(safe-area-inset-top));right:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(20,24,25,.7);color:var(--branco);font-size:1.3rem;line-height:1;cursor:pointer;z-index:2}
+.player-close:hover{background:var(--laranja);border-color:var(--laranja);color:var(--preto-2)}
+body.player-on{overflow:hidden}
 
 /* Além do vídeo */
 .alem{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
@@ -382,11 +397,11 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
     </div>
 
     <div class="feat reveal" id="feat" aria-live="polite">
-      <div class="feat-slide is-on" data-cat="eventos"><div class="bg forma"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Evento · Real time</p><h3>Porto · Forma Turismo</h3><p>A maior operação de viagens de formatura da América Latina: mais de 900 horas por temporada, entregas real time e aftermovies vertical e horizontal.</p><a class="btn btn-primary" href="https://www.youtube.com/watch?v=Rz5K2xnovm0" target="_blank" rel="noopener">Assistir</a></div></div>
-      <div class="feat-slide" data-cat="eventos"><div class="bg spfw"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Evento · Real time</p><h3>SPFW</h3><p>Aftermovie e seis vídeos real time em dois dias, para a marca e para Samsung, C6 Bank, Localiza, Mercedes, Iguatemi e Electrolux.</p><a class="btn btn-primary" href="https://drive.google.com/file/d/1FZ6nTOyoQJB8a6ArioIvpCab-SWh-gT4/view?usp=drive_link" target="_blank" rel="noopener">Assistir</a></div></div>
-      <div class="feat-slide" data-cat="eventos"><div class="bg oktoberfest"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Festival · 9 dias</p><h3>Oktoberfest São Paulo</h3><p>Mais de trinta vídeos para a marca, patrocinadores e os artistas do palco da Biertent.</p><a class="btn btn-primary" href="https://www.youtube.com/@pokanfilmes" target="_blank" rel="noopener">Assistir</a></div></div>
-      <div class="feat-slide" data-cat="ativacao"><div class="bg buser"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Ativação de marca</p><h3>Buser</h3><p>Ações na final do Campeonato Mineiro e no Meca viraram vídeos promocionais para a marca.</p><a class="btn btn-primary" href="https://drive.google.com/drive/folders/1EeAm2fLY7dzwRroo2JA_EYVok87KBxFT?usp=sharing" target="_blank" rel="noopener">Assistir</a></div></div>
-      <div class="feat-slide" data-cat="ativacao"><div class="bg budweiser"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Vídeo promocional</p><h3>Budweiser</h3><p>A volta da música ao vivo aos palcos, acompanhada do começo ao fim.</p><a class="btn btn-primary" href="https://drive.google.com/file/d/1_vPyd1IMi5Lkf-qTnLgdi4lvYahBqVB1/view?usp=sharing" target="_blank" rel="noopener">Assistir</a></div></div>
+      <div class="feat-slide is-on" data-cat="eventos"><div class="bg forma"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Evento · Real time</p><h3>Porto · Forma Turismo</h3><p>A maior operação de viagens de formatura da América Latina: mais de 900 horas por temporada, entregas real time e aftermovies vertical e horizontal.</p><a class="btn btn-primary" data-video="videos/forma.mp4" href="https://www.youtube.com/watch?v=Rz5K2xnovm0" target="_blank" rel="noopener">Assistir</a></div></div>
+      <div class="feat-slide" data-cat="eventos"><div class="bg spfw"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Evento · Real time</p><h3>SPFW</h3><p>Aftermovie e seis vídeos real time em dois dias, para a marca e para Samsung, C6 Bank, Localiza, Mercedes, Iguatemi e Electrolux.</p><a class="btn btn-primary" data-video="videos/spfw.mp4" href="https://drive.google.com/file/d/1FZ6nTOyoQJB8a6ArioIvpCab-SWh-gT4/view?usp=drive_link" target="_blank" rel="noopener">Assistir</a></div></div>
+      <div class="feat-slide" data-cat="eventos"><div class="bg oktoberfest"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Festival · 9 dias</p><h3>Oktoberfest São Paulo</h3><p>Mais de trinta vídeos para a marca, patrocinadores e os artistas do palco da Biertent.</p><a class="btn btn-primary" data-video="videos/oktoberfest.mp4" href="https://www.youtube.com/@pokanfilmes" target="_blank" rel="noopener">Assistir</a></div></div>
+      <div class="feat-slide" data-cat="ativacao"><div class="bg buser"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Ativação de marca</p><h3>Buser</h3><p>Ações na final do Campeonato Mineiro e no Meca viraram vídeos promocionais para a marca.</p><a class="btn btn-primary" data-video="videos/buser.mp4" href="https://drive.google.com/drive/folders/1EeAm2fLY7dzwRroo2JA_EYVok87KBxFT?usp=sharing" target="_blank" rel="noopener">Assistir</a></div></div>
+      <div class="feat-slide" data-cat="ativacao"><div class="bg budweiser"></div><div class="feat-veil"></div><div class="feat-meta"><p class="eyebrow">Vídeo promocional</p><h3>Budweiser</h3><p>A volta da música ao vivo aos palcos, acompanhada do começo ao fim.</p><a class="btn btn-primary" data-video="videos/budweiser.mp4" href="https://drive.google.com/file/d/1_vPyd1IMi5Lkf-qTnLgdi4lvYahBqVB1/view?usp=sharing" target="_blank" rel="noopener">Assistir</a></div></div>
       <div class="feat-nav"><button type="button" class="feat-btn" data-dir="-1" aria-label="Anterior">&#8592;</button><div class="feat-dots" id="featDots"></div><button type="button" class="feat-btn" data-dir="1" aria-label="Próximo">&#8594;</button></div>
     </div>
 
@@ -399,11 +414,11 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
     </div>
 
     <div class="work-grid" id="workGrid">
-      <a class="card reveal" data-cat="eventos" href="https://www.youtube.com/watch?v=Rz5K2xnovm0" target="_blank" rel="noopener"><div class="bg forma"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Evento · Real time</p><h3>Porto · Forma Turismo</h3><p>900 horas por temporada, real time e aftermovies</p></div></a>
-      <a class="card reveal" data-cat="eventos" href="https://drive.google.com/file/d/1FZ6nTOyoQJB8a6ArioIvpCab-SWh-gT4/view?usp=drive_link" target="_blank" rel="noopener"><div class="bg spfw"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Evento · Real time</p><h3>SPFW</h3><p>Aftermovie e seis vídeos real time em dois dias</p></div></a>
-      <a class="card reveal" data-cat="eventos" href="https://www.youtube.com/@pokanfilmes" target="_blank" rel="noopener"><div class="bg oktoberfest"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Festival · 9 dias</p><h3>Oktoberfest São Paulo</h3><p>Mais de trinta vídeos para marca, patrocinadores e artistas</p></div></a>
-      <a class="card reveal" data-cat="ativacao" href="https://drive.google.com/drive/folders/1EeAm2fLY7dzwRroo2JA_EYVok87KBxFT?usp=sharing" target="_blank" rel="noopener"><div class="bg buser"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Ativação de marca</p><h3>Buser</h3><p>Final do Campeonato Mineiro e Meca em vídeos promocionais</p></div></a>
-      <a class="card reveal" data-cat="ativacao" href="https://drive.google.com/file/d/1_vPyd1IMi5Lkf-qTnLgdi4lvYahBqVB1/view?usp=sharing" target="_blank" rel="noopener"><div class="bg budweiser"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Vídeo promocional</p><h3>Budweiser</h3><p>A volta da música ao vivo aos palcos</p></div></a>
+      <a class="card reveal" data-video="videos/forma.mp4" data-cat="eventos" href="https://www.youtube.com/watch?v=Rz5K2xnovm0" target="_blank" rel="noopener"><div class="bg forma"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Evento · Real time</p><h3>Porto · Forma Turismo</h3><p>900 horas por temporada, real time e aftermovies</p></div></a>
+      <a class="card reveal" data-video="videos/spfw.mp4" data-cat="eventos" href="https://drive.google.com/file/d/1FZ6nTOyoQJB8a6ArioIvpCab-SWh-gT4/view?usp=drive_link" target="_blank" rel="noopener"><div class="bg spfw"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Evento · Real time</p><h3>SPFW</h3><p>Aftermovie e seis vídeos real time em dois dias</p></div></a>
+      <a class="card reveal" data-video="videos/oktoberfest.mp4" data-cat="eventos" href="https://www.youtube.com/@pokanfilmes" target="_blank" rel="noopener"><div class="bg oktoberfest"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Festival · 9 dias</p><h3>Oktoberfest São Paulo</h3><p>Mais de trinta vídeos para marca, patrocinadores e artistas</p></div></a>
+      <a class="card reveal" data-video="videos/buser.mp4" data-cat="ativacao" href="https://drive.google.com/drive/folders/1EeAm2fLY7dzwRroo2JA_EYVok87KBxFT?usp=sharing" target="_blank" rel="noopener"><div class="bg buser"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Ativação de marca</p><h3>Buser</h3><p>Final do Campeonato Mineiro e Meca em vídeos promocionais</p></div></a>
+      <a class="card reveal" data-video="videos/budweiser.mp4" data-cat="ativacao" href="https://drive.google.com/file/d/1_vPyd1IMi5Lkf-qTnLgdi4lvYahBqVB1/view?usp=sharing" target="_blank" rel="noopener"><div class="bg budweiser"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Vídeo promocional</p><h3>Budweiser</h3><p>A volta da música ao vivo aos palcos</p></div></a>
       <a class="card reveal" data-cat="eventos" href="https://www.youtube.com/@pokanfilmes" target="_blank" rel="noopener"><div class="bg taste"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Festival · 9 dias</p><h3>Taste Festival</h3><p>Mais de trinta vídeos para Santander, Nespresso, Accor e Sadia</p></div></a>
       <a class="card reveal" data-cat="eventos" href="https://drive.google.com/file/d/14oLs1iKQaAsiNQclLGFLEf6UVZGPx76X/view?usp=sharing" target="_blank" rel="noopener"><div class="bg getnet"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Evento corporativo</p><h3>Getnet</h3><p>Lançamento do programa de parcerias no SubAstor Bar do Cofre</p></div></a>
       <a class="card reveal" data-cat="documentario" href="https://drive.google.com/drive/folders/1rMlXJS0S743ghz2XNn957Nl9gySH4_q6?usp=sharing" target="_blank" rel="noopener"><div class="bg rio-open"></div><div class="veil"></div><span class="play-sm"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span><div class="meta"><p class="eyebrow">Documentário</p><h3>Rio Open</h3><p>Documentário e duas peças curtas sobre o braço social do torneio</p></div></a>
@@ -654,6 +669,11 @@ footer .bottom{max-width:var(--max);margin:2.5rem auto 0;padding-inline:var(--gu
   <div class="bottom"><span>© 2026 Pokan Filmes. Todos os direitos reservados.</span><span>CNPJ e endereço completo sob consulta</span></div>
 </footer>
 
+<div class="player" id="player" role="dialog" aria-modal="true" aria-label="Player de vídeo" hidden>
+  <button type="button" class="player-close" id="playerClose" aria-label="Fechar vídeo">&#10005;</button>
+  <video id="playerVideo" controls playsinline preload="none"></video>
+</div>
+
 <script>
 // ===== CONFIGURAR AQUI =====
 var WHATSAPP = "5511999974580"; // número com DDI+DDD, só dígitos. Ex.: 5511987654321
@@ -735,6 +755,31 @@ var WHATSAPP_DISPLAY = "(11) 99997-4580";
       empty.hidden = n > 0;
     });
   });
+
+  // Player de vídeo: links com data-video tocam no próprio site; sem JS, o link original continua valendo
+  var player = document.getElementById('player'), pv = document.getElementById('playerVideo'), lastFocus, fallback;
+  function closePlayer(){
+    if (!player.classList.contains('is-open')) return;
+    fallback = null;
+    player.classList.remove('is-open'); document.body.classList.remove('player-on');
+    pv.pause(); pv.removeAttribute('src'); pv.load();
+    setTimeout(function(){ player.hidden = true; }, 250);
+    if (lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('a[data-video]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault(); lastFocus = a; fallback = a.href;
+      player.hidden = false; void player.offsetWidth;
+      player.classList.add('is-open'); document.body.classList.add('player-on');
+      pv.src = a.dataset.video; pv.play().catch(function(){});
+      document.getElementById('playerClose').focus();
+    });
+  });
+  // Se o arquivo do vídeo não carregar, abre o link original do trabalho
+  pv.addEventListener('error', function(){ var h = fallback; if (!h) return; closePlayer(); window.location.href = h; });
+  document.getElementById('playerClose').addEventListener('click', closePlayer);
+  player.addEventListener('click', function(e){ if (e.target === player) closePlayer(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closePlayer(); });
 
   // Pré-seleção do segmento a partir dos botões
   document.querySelectorAll('[data-seg]').forEach(function(a){
