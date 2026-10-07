@@ -1,0 +1,33 @@
+# Publica o site na HostGator a cada envio para a branch main.
+# Requer o segredo FTP_PASSWORD em Settings > Secrets and variables > Actions.
+name: Publicar na HostGator
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostgator
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enviar arquivos por FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: br884.hostgator.com.br
+          username: deploy@pokanfilmes.com.br
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            CNAME
+            .nojekyll
