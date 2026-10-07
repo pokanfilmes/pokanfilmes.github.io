@@ -255,7 +255,7 @@ main{max-width:1280px;margin:0 auto;padding:1.4rem clamp(14px,3vw,32px) 4rem}
       var r = el('button', 'row'); r.type = 'button';
       var c1 = el('div'); c1.appendChild(el('div', 'n', l.nome || 'Sem nome')); c1.appendChild(el('div', 's', [l.empresa, l.tel].filter(Boolean).join(' · ') || '—'));
       var c2 = el('div', 'c2'); c2.appendChild(el('div', 's', l.pacote ? 'Pacote: ' + l.pacote : 'Pacote não informado')); c2.appendChild(el('div', 's', l.seg || '—'));
-      var c3 = el('div', 'c3'); c3.appendChild(el('div', 's', 'Chegou em ' + dataBR(l.criado))); c3.appendChild(el('div', 's', l.quando || '—'));
+      var c3 = el('div', 'c3'); c3.appendChild(el('div', 's', 'Chegou em ' + dataBR(l.criado))); c3.appendChild(el('div', 's', l.campanha ? 'Origem: ' + l.campanha : (l.quando || '—')));
       var c4 = el('div', 'right'); var bd = el('span', 'badge', nomeStatus(l.status)); bd.style.setProperty('--c', 'var(--' + l.status + ')'); c4.appendChild(bd);
       if (l.retorno && l.status !== 'fechado' && l.status !== 'perdido') {
         var cls = l.retorno < hoje ? ' atrasado' : l.retorno === hoje ? ' hoje' : '';
@@ -276,7 +276,7 @@ main{max-width:1280px;margin:0 auto;padding:1.4rem clamp(14px,3vw,32px) 4rem}
     atual = l; var novo = !l;
     l = l || { status:'novo' };
     $('sheetNome').textContent = novo ? 'Novo lead' : (l.nome || 'Lead');
-    $('sheetMeta').textContent = novo ? 'Cadastro manual' : ('Chegou em ' + dataBR(l.criado) + (l.origem === 'manual' ? ' · cadastro manual' : ' · pelo site'));
+    $('sheetMeta').textContent = novo ? 'Cadastro manual' : ('Chegou em ' + dataBR(l.criado) + (l.origem === 'manual' ? ' · cadastro manual' : ' · pelo site') + (l.campanha ? ' · origem: ' + l.campanha : ''));
     opcoes($('fStatus'), STATUS, l.status || 'novo');
     opcoes($('fPacote'), PACOTES, l.pacote || ''); opcoes($('fSeg'), SEGS, l.seg || ''); opcoes($('fQuando'), QUANDOS, l.quando || '');
     $('fRetorno').value = l.retorno || ''; $('fNotas').value = l.notas || '';
@@ -326,7 +326,7 @@ main{max-width:1280px;margin:0 auto;padding:1.4rem clamp(14px,3vw,32px) 4rem}
 
   // Exportação para planilha (CSV com separador ponto e vírgula, abre direto no Excel e no Google Planilhas)
   $('csvBtn').addEventListener('click', function(){
-    var cols = [['criado','Chegou em'],['status','Status'],['nome','Nome'],['empresa','Empresa'],['tel','WhatsApp'],['pacote','Pacote'],['seg','Tipo de projeto'],['quando','Quando'],['msg','Pedido'],['notas','Anotações'],['retorno','Próximo retorno'],['origem','Origem']];
+    var cols = [['criado','Chegou em'],['status','Status'],['nome','Nome'],['empresa','Empresa'],['tel','WhatsApp'],['pacote','Pacote'],['seg','Tipo de projeto'],['quando','Quando'],['msg','Pedido'],['notas','Anotações'],['retorno','Próximo retorno'],['origem','Cadastro'],['campanha','Origem da visita']];
     function cel(v){ v = String(v == null ? '' : v); if (/^[=+\-@\t\r]/.test(v)) v = "'" + v; return '"' + v.replace(/"/g, '""') + '"'; }
     var linhas = [cols.map(function(c){ return cel(c[1]); }).join(';')];
     leads.forEach(function(l){ linhas.push(cols.map(function(c){ var v = l[c[0]]; if (c[0] === 'criado') v = dataBR(v); if (c[0] === 'retorno') v = dataBR(v); if (c[0] === 'status') v = nomeStatus(v); return cel(v); }).join(';')); });

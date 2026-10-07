@@ -110,6 +110,7 @@ function novo_lead(array $in, string $origem): array {
         'pacote' => campo($in, 'pacote', 80),
         'quando' => campo($in, 'quando', 60),
         'msg' => campo($in, 'msg', 3000),
+        'campanha' => campo($in, 'campanha', 200),
         'notas' => campo($in, 'notas', 5000),
         'retorno' => preg_match('/^\d{4}-\d{2}-\d{2}$/', campo($in, 'retorno', 10)) ? campo($in, 'retorno', 10) : '',
     ];
